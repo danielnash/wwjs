@@ -2,9 +2,9 @@
     Simple util class to create test users in the DB and remove them afterwards
 */
 
-const query = require('./../../src/db/query.js');
+const query = require(`${__base}/db/query.js`);
 
-const HashFactory = require('./../../src/utils/hash-factory.js');
+const HashFactory = require(`${__base}/utils/hash-factory.js`);
 
 const testUser = {
     username: 'ww_test__user',
@@ -80,4 +80,4 @@ module.exports = class TestUser {
     static set user(user) {
         TestUser.user = user;
     }
-}
+};

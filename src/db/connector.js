@@ -1,6 +1,6 @@
 const mysql = require('mysql');
 
-const config = require('./../../config.js');
+const config = require(`${__base}/../config.js`);
 
 module.exports = mysql.createConnection({
     host: (config.database.host || '127.0.0.1'),

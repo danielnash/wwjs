@@ -10,4 +10,4 @@ module.exports = class BaseError extends Error {
         // Capturing stack trace, excluding constructor call from it.
         Error.captureStackTrace(this, this.constructor);
     }
-}
+};

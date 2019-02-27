@@ -1,8 +1,8 @@
-const query = require('./db/query.js');
+const query = require(`${__base}/db/query.js`);
 
-const UserNotFoundError = require('./errors/user-not-found.js');
+const UserNotFoundError = require(`${__base}/errors/user-not-found.js`);
 
-const HashFactory = require('./utils/hash-factory.js');
+const HashFactory = require(`${__base}/utils/hash-factory.js`);
 
 module.exports = class UserManager {
     async getUsers() {
@@ -78,4 +78,4 @@ module.exports = class UserManager {
 
         return (result.affectedRows > 0);
     }
-}
+};

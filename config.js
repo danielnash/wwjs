@@ -9,5 +9,10 @@ module.exports = {
         user: 'root',
         password: '',
         database: '__ww_test'
+    },
+
+    mail: {
+        host: 'localhost',
+        port: 2500
     }
 }

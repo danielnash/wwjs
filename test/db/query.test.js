@@ -1,4 +1,4 @@
-const query = require('./../../src/db/query.js');
+const query = require(`${__base}/db/query.js`);
 
 describe('query() - a basic promise wrapper for MySQL queries', () => {
 

@@ -1,10 +1,9 @@
-const UserManager = require('./../src/user-manager.js');
+const UserManager = require(`${__base}/user-manager.js`);
 
-const UserNotFoundError = require('./../src/errors/user-not-found.js');
+const UserNotFoundError = require(`${__base}/errors/user-not-found.js`);
 
 // Testing utils!
 const TestUser = require('./utils/test-user.js');
-const query = require('./../src/db/query.js');
 
 function expectUserNotFound(error) {
     expect(error).toBeInstanceOf(UserNotFoundError);
@@ -64,6 +63,8 @@ describe('UserManager - class for managing users of the application', () => {
 
         });
 
+        // Quick util for awaiting a response from a failed login
+
         async function expectInvalidLogin(user, pass) {
             expect.assertions(1);
 
@@ -93,13 +94,13 @@ describe('UserManager - class for managing users of the application', () => {
 
         const newPass = 'n3wp:4s!&sw!0rd';
 
-        await expect(um.updatePassword(
-                TestUser.user.id, 
-                TestUser.user.password,
-                newPass
-            ))
-             .resolves
-             .toBeTruthy();
+        const userUpdatePromise = um.updatePassword(
+            TestUser.user.id, 
+            TestUser.user.password,
+            newPass
+        );
+
+        await expect(userUpdatePromise).resolves.toBeTruthy();
 
     });
 
