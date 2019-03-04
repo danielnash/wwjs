@@ -6,7 +6,7 @@ const Mailer = require(`${__base}/mail/mailer.js`);
 
 const um = new UserManager();
 
-(async _ => {
+(async () => {
     const users = await um.getUsers();
 
     const user = await um.loginUser('dan', 'penguin');
@@ -19,7 +19,7 @@ const um = new UserManager();
         html: '<b>Skrrrryyy</b> and skr'
     });
 
-    console.log(mailResult);
+    console.log('Result of the email:', mailResult);
 
     // console.log('Gona', mailResult);
 
